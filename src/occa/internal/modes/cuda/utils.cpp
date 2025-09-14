@@ -185,11 +185,11 @@ namespace occa {
                            ? ((cuda::device*) device.getModeDevice())->cuDevice
                            : CU_DEVICE_CPU);
 
-      OCCA_CUDA_ERROR("Advising about unified memory",
+/*      OCCA_CUDA_ERROR("Advising about unified memory",
                       cuMemAdvise(((cuda::memory*) mem.getModeMemory())->cuPtr,
                                   (size_t) bytes_,
                                   advice,
-                                  cuDevice));
+                                  cuDevice));*/
 #else
       OCCA_FORCE_ERROR("CUDA version ["
                        << cuda::getVersion()
@@ -215,11 +215,11 @@ namespace occa {
                            ? ((cuda::device*) device.getModeDevice())->cuDevice
                            : CU_DEVICE_CPU);
       occa::stream stream = device.getStream();
-      OCCA_CUDA_ERROR("Prefetching unified memory",
+  /*    OCCA_CUDA_ERROR("Prefetching unified memory",
                       cuMemPrefetchAsync(((cuda::memory*) mem.getModeMemory())->cuPtr,
                                          (size_t) bytes_,
                                          cuDevice,
-                                         *((CUstream*) stream.getModeStream())) );
+                                         *((CUstream*) stream.getModeStream())) );*/
 #else
       OCCA_FORCE_ERROR("CUDA version ["
                        << cuda::getVersion()
